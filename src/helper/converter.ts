@@ -17,14 +17,16 @@ const convertENVtoJSON:(env:string) => string = (env:string):string =>{
     const json:MyJSONObject = {};
     const lines = env.split('\n');
 
-    for (let line of lines) {
-        const parts = line.split('=');
-        if (parts.length === 2) {
-        const key = parts[0].trim();
-        const value = parts[1].trim().replace(/"/g, '');
-        json[key] = value;
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+    
+        if (line.startsWith('#')) {
+          continue;
         }
-    }
+    
+        const [key, value] = line.split('=').map(str => str.trim());
+        json[key] = value;
+      }
     console.log(JSON.stringify(json));
     return JSON.stringify(json,null,2);
 }
