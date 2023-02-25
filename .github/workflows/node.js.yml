@@ -36,12 +36,6 @@ jobs:
     - name: Build
       run: npm run build --verbose
 
-    # - name: Commit changes
-    #   run: |
-    #     git add .
-    #     git commit -m "gh-page"
-    # - name: Push changes
-    #   uses: ad-m/github-push-action@master
     - name: Deploy
       run: npm run deploy
       with:
