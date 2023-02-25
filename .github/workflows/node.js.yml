@@ -37,7 +37,7 @@ jobs:
     - name: Build
       run: npm run build --verbose
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: Deploy
+      run: npm run deploy
       with:
         github_token: ${{ secrets.TOKEN }}
